@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use View;
 class HomeController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function home(){
+    public function home(){                        
       return view('admin/admin');
 
     }

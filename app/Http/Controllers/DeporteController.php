@@ -3,26 +3,38 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entities\Deporte;
 
+use View;
 class DeporteController extends Controller
 {
     
-    public function getDeportes(){
-        
+  
+     public function index(){
+         return View::make('deporte.listDeportes')->render();             
+       
     }
-    
     public function addDeporte(){
-        
+         return View::make('deporte.addDeporte')->render(); 
+    }
+ 
+    public function updateDeporte(){
+                 return View::make('deporte.updateDeporte')->render(); 
+
     }
     
-    public function updateDeporte(){
-        
-    }
+    //post functions
     
     public function deleteDeporte(){
         
     }
+       public function saveDeporte(){
+        
+    }
     
+    public function getDeporte(){
+        
+    }
     
     
 }

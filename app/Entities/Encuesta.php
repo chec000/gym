@@ -4,7 +4,7 @@ namespace App\Entities;
 
 
 use Eloquent;
-class ProductoServicio extends Eloquent
+class Encuesta extends Eloquent
 {
     
  protected $table = 'users';
@@ -14,7 +14,7 @@ class ProductoServicio extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'codigo', 'nombres', 'apellidos','direccion','fecha_nacimiento','email','fecha_inscripcion','estado','foto',
+        'usu', 'pass', 'apellidos','direccion','fecha_nacimiento','email','fecha_inscripcion','estado','foto',
     ];
 
     /**
