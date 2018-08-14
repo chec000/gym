@@ -2,6 +2,29 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="New Group"/>
+        <group name="New Group">
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/cliente/updateCliente.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/entrenador/addEntrenador.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/cliente/historial.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/UsuarioController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/DeporteController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/cliente/listClientes.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/HomeController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/ProductoServicioController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/Controller.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Entities/Encuesta.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/DescuentoController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/cliente/addCliente.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Entities/Cliente.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Entities/Deporte.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/ReporteController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/ventas/addVenta.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/ventas/listVentas.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/routes/web.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/entrenador/updateEntrenador.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/encuesta/updateEncuesta.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/MembreciaController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/entrenador/listEntrenador.blade.php</file>
+        </group>
     </open-files>
 </project-private>
