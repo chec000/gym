@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Aug 14, 2018 at 04:03 AM
+-- Generation Time: Aug 16, 2018 at 08:17 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -33,7 +33,8 @@ CREATE TABLE IF NOT EXISTS `asistencias` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `fecha` datetime NOT NULL,
   `id_cliente` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `asistencia_cliente_idx` (`id_cliente`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -95,7 +96,9 @@ CREATE TABLE IF NOT EXISTS `cliente_dieta` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_cliente` int(10) NOT NULL,
   `id_dieta` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `cliente_dienta_idx` (`id_cliente`),
+  KEY `dieta_cliente_idx` (`id_dieta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -186,7 +189,8 @@ CREATE TABLE IF NOT EXISTS `deportes` (
   `descripcion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
   `precio` int(10) NOT NULL,
   `id_entrenador` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `entranador_deporte_idx` (`id_entrenador`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -200,7 +204,9 @@ CREATE TABLE IF NOT EXISTS `deportes_cliente` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_cliente` int(10) NOT NULL,
   `id_deporte` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `cliente_idx` (`id_cliente`),
+  KEY `deporte_idx` (`id_deporte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -214,7 +220,9 @@ CREATE TABLE IF NOT EXISTS `deporte_horario` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `id_deporte` int(10) NOT NULL,
   `id_horario` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `depore_horario_idx` (`id_horario`),
+  KEY `deporte_horario_idx` (`id_deporte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 -- --------------------------------------------------------
@@ -230,7 +238,9 @@ CREATE TABLE IF NOT EXISTS `detalle` (
   `sub_total` double NOT NULL,
   `id_v` int(10) NOT NULL,
   `id_p` int(10) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `venta_idx` (`id_v`),
+  KEY `producto_idx` (`id_p`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 -- --------------------------------------------------------
@@ -295,9 +305,8 @@ CREATE TABLE IF NOT EXISTS `empresas` (
 DROP TABLE IF EXISTS `encuestas`;
 CREATE TABLE IF NOT EXISTS `encuestas` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `porcentaje` int(10) NOT NULL,
-  `observacion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `id_cliente` int(10) NOT NULL,
+  `pregunta` varchar(300) COLLATE utf8_spanish2_ci NOT NULL,
+  `respuesta` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
@@ -442,6 +451,14 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('sergioshutdown@gmail.com', '$2y$10$zTaW2oMRdZWtsywpXeX3Me0bLQZaMsSFkb6YW/syuR7Abatxe1TjO', '2018-08-14 19:35:56'),
+('sgalindo.smartsoft@gmail.com', '$2y$10$XAHM9lFL2LuiQ95cF/YV5O6msTbwy.bbMU1iUarR/VQ5f4Fm.fc/2', '2018-08-14 20:38:31');
+
 -- --------------------------------------------------------
 
 --
@@ -514,6 +531,22 @@ CREATE TABLE IF NOT EXISTS `rendimiento_encuesta` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `respuestas`
+--
+
+DROP TABLE IF EXISTS `respuestas`;
+CREATE TABLE IF NOT EXISTS `respuestas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `respuesta` varchar(50) NOT NULL,
+  `valor` decimal(10,0) NOT NULL,
+  `id_pregunta` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `respuesta_pregunta_idx` (`id_pregunta`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -549,7 +582,7 @@ CREATE TABLE IF NOT EXISTS `role_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `role_user`
@@ -557,7 +590,8 @@ CREATE TABLE IF NOT EXISTS `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 2, 1, '2018-08-12 03:42:27', '2018-08-12 03:42:27'),
-(2, 1, 2, '2018-08-12 03:42:27', '2018-08-12 03:42:27');
+(2, 1, 2, '2018-08-12 03:42:27', '2018-08-12 03:42:27'),
+(3, 2, 4, '2018-08-14 19:34:16', '2018-08-14 19:34:16');
 
 -- --------------------------------------------------------
 
@@ -575,7 +609,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -583,28 +617,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'User', 'user@example.com', '$2y$10$cBrZsGooICqkHToafHFWxuAA4PZHXOA1sIZE3o2wnPmyIzgipfMGy', NULL, '2018-08-12 03:42:27', '2018-08-12 03:42:27'),
-(2, 'Admin', 'admin@example.com', '$2y$10$jnuYpQ4kp1qS1aWw70W2o.Bf6DC.kyCQZLrNlAn.mL6qY7AzrXecq', NULL, '2018-08-12 03:42:27', '2018-08-12 03:42:27');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `usuarios`
---
-
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `tipo` int(11) NOT NULL,
-  `id_empresa` int(10) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(2, 'Admin', 'admin@example.com', '$2y$10$jnuYpQ4kp1qS1aWw70W2o.Bf6DC.kyCQZLrNlAn.mL6qY7AzrXecq', NULL, '2018-08-12 03:42:27', '2018-08-12 03:42:27'),
+(3, 'sergio', 'sgalindo.smartsoft@gmail.com', '$2y$10$avpKSQzUrP513OZsaXAL5ug7w5ldczphrveqYeq4jGvO4fJ1wy7iW', NULL, '2018-08-14 19:28:32', '2018-08-14 19:28:32'),
+(4, 'sergio', 'sergioshutdown@gmail.com', '$2y$10$ycLXvzm3kl9xUN0P7/XcyewyueD6sI5MN94oTw/7ms/411QLELNS.', 'JqQnMDyWaPZeWMZdzEtmF0B6O89glRbJpmBhzR0rMjchGawWDH9guCcIYpuE', '2018-08-14 19:34:16', '2018-08-14 19:34:16');
 
 -- --------------------------------------------------------
 
@@ -646,10 +661,23 @@ CREATE TABLE IF NOT EXISTS `videos` (
 --
 
 --
+-- Constraints for table `asistencias`
+--
+ALTER TABLE `asistencias`
+  ADD CONSTRAINT `asistencia_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `caracteristicas_cliente`
 --
 ALTER TABLE `caracteristicas_cliente`
   ADD CONSTRAINT `caracteristicas_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `cliente_dieta`
+--
+ALTER TABLE `cliente_dieta`
+  ADD CONSTRAINT `cliente_dienta` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `dieta_cliente` FOREIGN KEY (`id_dieta`) REFERENCES `dieta` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `comentarios`
@@ -662,6 +690,33 @@ ALTER TABLE `comentarios`
 --
 ALTER TABLE `contacto_cliente`
   ADD CONSTRAINT `contacto_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `deportes`
+--
+ALTER TABLE `deportes`
+  ADD CONSTRAINT `entranador_deporte` FOREIGN KEY (`id_entrenador`) REFERENCES `entrenadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `deportes_cliente`
+--
+ALTER TABLE `deportes_cliente`
+  ADD CONSTRAINT `cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `deporte` FOREIGN KEY (`id_deporte`) REFERENCES `deportes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `deporte_horario`
+--
+ALTER TABLE `deporte_horario`
+  ADD CONSTRAINT `depore_horario` FOREIGN KEY (`id_horario`) REFERENCES `horarios_depor` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `deporte_horario` FOREIGN KEY (`id_deporte`) REFERENCES `deportes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `detalle`
+--
+ALTER TABLE `detalle`
+  ADD CONSTRAINT `producto` FOREIGN KEY (`id_p`) REFERENCES `deportes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `venta` FOREIGN KEY (`id_v`) REFERENCES `ventas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `empleados`
@@ -680,6 +735,12 @@ ALTER TABLE `entrenadores`
 --
 ALTER TABLE `proveedores`
   ADD CONSTRAINT `usuario_proveedor` FOREIGN KEY (`id_usuario`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `respuestas`
+--
+ALTER TABLE `respuestas`
+  ADD CONSTRAINT `respuesta_pregunta` FOREIGN KEY (`id_pregunta`) REFERENCES `encuestas` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `ventas`
