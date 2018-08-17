@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('index', function () {
-    return "hola";
-});
+Route::get('/', 'indexController@start')->name('start');
 
 Auth::routes();
 
