@@ -74,7 +74,6 @@ class RegisterController extends Controller
 //                           dd($location);
                 
 //                     $location = $geocoder->reverse($lat, $lon)->first()->toArray();
-
     $user = User::create([
         'name' => $data['name'],
         'email' => $data['email'],

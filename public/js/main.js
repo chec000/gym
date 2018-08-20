@@ -30,7 +30,6 @@ $.each(data, function( index, value ) {
                 console.log(data);
             });
 
-
 }
 
 function getLocation() {
@@ -49,7 +48,11 @@ function showPosition(position) {
          url: form.attr('action'),
            data: form.serialize()
     }).done(function (data) {
-    
+  var  register=$("#register");
+   
+    $("<input name='lat' value="+position.coords.latitude+" >").attr('type','hidden').appendTo(register);
+    $("<input name='lon' value="+position.coords.longitude+" >").attr('type','hidden').appendTo(register);
+
         $("#pais").val(data.pais.id);
         
           getEstadosPromise(data.pais.id).done(function (estado) {
