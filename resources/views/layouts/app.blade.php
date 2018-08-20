@@ -77,5 +77,7 @@
         </main>
     </div>
 </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" i crossorigin="anonymous"></script>
+
 <script src="{!! asset('js/main.js') !!}"></script>
 </html>

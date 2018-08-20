@@ -46,6 +46,22 @@ class indexController extends Controller{
         }
         
     }
-
     
+    
+    public function  getPais(Request $request){
+              
+        if($request->has('lat')&&$request->has('lon')){
+               $httpClient = new \Http\Adapter\Guzzle6\Client();      
+                $provider = new \Geocoder\Provider\GoogleMaps\GoogleMaps($httpClient, null, 'AIzaSyBBmgIlPaMOTALtAFrpNzOSEpxEJHyoce4');
+                $geocoder = new \Geocoder\StatefulGeocoder($provider, 'en');
+            $location = $geocoder->reverse($request->lat, $request->lon)->first()->toArray();     
+            
+      
+//              $countryKey = $this->is_uecountry($location['countryCode']) ? config('cms.countryKey_ue') : $location['countryCode'];
+                 
+        }
+        
+             
+        return $request->all();
+    }   
 }

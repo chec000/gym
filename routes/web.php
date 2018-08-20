@@ -44,6 +44,8 @@ Route::get('/changeLang/{lang}', 'indexController@changeLang')->name('start');
 Route::get('/usuarios', 'UsuarioController@getUsuarios')->name('usuarios');
 
 Route::post('/getEstados', 'indexController@getEstados')->name('estados');
+Route::post('/getPais', 'indexController@getPais')->name('pais');
+
 
 
 

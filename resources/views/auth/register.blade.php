@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" id="register">
                         @csrf
 
                         <div class="form-group row">
@@ -217,6 +217,12 @@
 <input type="hidden" id="id_pais" name="id_pais">
 
 {{ Form::close() }}
+{{ Form::open(array('url' => 'getPais','id'=>'form_pais')) }}
+<input type="hidden"  name="lat" id="lat">
+<input type="hidden"  name="lon" id="lon">
+
+{{ Form::close() }}
+
 
 @endsection
 
