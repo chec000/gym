@@ -73,6 +73,7 @@ function showPosition(position) {
 }
 
 
+
 function getEstadosPromise(id_pais) {
     form = $("#form_estado");
    $("#id_pais").val(id_pais);
@@ -83,6 +84,10 @@ function getEstadosPromise(id_pais) {
     });
     return request;
 }
+
+
+
+
 
 function showError(error) {
     switch (error.code) {

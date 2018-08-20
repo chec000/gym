@@ -48,4 +48,7 @@ Route::post('/getPais', 'indexController@getPais')->name('pais');
 
 
 
+//Membresia controller
+Route::get('/admin/membresia/addMembresia', 'MembresiaController@getAdd')->name('addMembresia');
 
+Route::post('/admin/membresia/saveMembresia', 'MembresiaController@addMebrecia')->name('saveMembresia');

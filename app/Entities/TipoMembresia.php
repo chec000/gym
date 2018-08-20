@@ -4,17 +4,17 @@ namespace App\Entities;
 
 
 use Eloquent;
-class Membresia extends Eloquent
+class TipoMembresia extends Eloquent
 {
     
- protected $table = 'membresias';
+ protected $table = 'tipomembresia';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'tipo_id', 'nombre', 'precio','requisitos','duracion'
+         'nombre', 'descripcion','activo'
     ];
 
     /**

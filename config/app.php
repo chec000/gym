@@ -154,7 +154,6 @@ return [
         /*
          * Application Service Providers...
          */
-          Geocoder\Laravel\Providers\GeocoderService::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
