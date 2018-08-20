@@ -217,6 +217,12 @@
 <input type="hidden" id="id_pais" name="id_pais">
 
 {{ Form::close() }}
+{{ Form::open(array('url' => 'getPais','id'=>'form_pais')) }}
+<input type="hidden"  name="lat" id="lat">
+<input type="hidden"  name="lon" id="lon">
+
+{{ Form::close() }}
+
 
 @endsection
 

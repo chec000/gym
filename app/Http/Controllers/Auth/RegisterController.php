@@ -8,6 +8,7 @@ use App\Role;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use GuzzleHttp\Client as GuzzleAdapter;
 
 class RegisterController extends Controller
 {
@@ -64,7 +65,16 @@ class RegisterController extends Controller
      */
  protected function create(array $data)
 {
-     
+ 
+//           $httpClient = new GuzzleAdapter;
+//    
+//           $provider = new \Geocoder\Provider\GoogleMaps\GoogleMaps($httpClient, null, 'AIzaSyBBmgIlPaMOTALtAFrpNzOSEpxEJHyoce4');
+//                $geocoder = new \Geocoder\StatefulGeocoder($provider, 'en');
+//                $location = $geocoder->reverse(20.673, -103.344)->first()->toArray();                
+//                           dd($location);
+                
+//                     $location = $geocoder->reverse($lat, $lon)->first()->toArray();
+
     $user = User::create([
         'name' => $data['name'],
         'email' => $data['email'],
@@ -78,8 +88,8 @@ class RegisterController extends Controller
         'ciudad'=>$data['estado'],
         'direccion'=>$data['direccion'],
         'pais'=>$data['pais'],           
-        'latitud'=>1,
-        'longitud'=>1.1,
+        'latitud'=>$data['lat'],
+        'longitud'=>$data['lon'],
         'password' => bcrypt($data['password']),
     ]);
     $user

@@ -15,6 +15,7 @@ namespace App\Http\Controllers;
  */
 use Illuminate\Http\Request;
 use App\Entities\Pais;
+use App\Entities\Estado;
 use View;
 
 class indexController extends Controller{
@@ -46,6 +47,18 @@ class indexController extends Controller{
         }
         
     }
-
     
+    
+    public function  getPais(Request $request){
+              
+                $httpClient = new \Http\Adapter\Guzzle6\Client();      
+                $provider = new \Geocoder\Provider\GoogleMaps\GoogleMaps($httpClient, null, 'AIzaSyBBmgIlPaMOTALtAFrpNzOSEpxEJHyoce4');
+                $geocoder = new \Geocoder\StatefulGeocoder($provider, 'en');
+            $location = $geocoder->reverse(20.673, -103.344)->first()->toArray();      
+            $country= Pais::where('nombre','=',$location['country'])->first();
+            $estado=Estado::where('nombre','=',$location['adminLevels'][1]['name'])->first();
+            $data=array('pais' =>$country ,'estado'=>$estado);
+            
+        return $data;
+    }   
 }

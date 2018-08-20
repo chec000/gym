@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entities\Cliente;
+use App\User;
 use View;
 class ClienteController extends Controller
 {
@@ -20,13 +21,18 @@ class ClienteController extends Controller
      return   View::make('cliente.addCliente')->render(); 
          
     }
+    
+    public function getClienteUsuario(Request $request){
+        $users= User::where('nombre','like',$request->nombre)->get();
+        
+        if(count($users)>0){
+            return $users;
+        }else{
+            return null;
+        }
+    }
+    
     public function saveCliente(){
-        $cliente= new Cliente();
-        $cliente->nombres="";
-        $cliente->apellidos="";
-        $cliente->pais="";
-        $cliente->estado="";
-        $cliente->ciudad="";
         
     }
     
