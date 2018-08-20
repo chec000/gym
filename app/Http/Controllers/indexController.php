@@ -14,12 +14,38 @@ namespace App\Http\Controllers;
  * @author sergio
  */
 use Illuminate\Http\Request;
-        use View;
+use App\Entities\Pais;
+use View;
+
 class indexController extends Controller{
     //put your code here
     
         
     public function start() {
+      
+        
         return   View::make('welcome')->render(); 
     }
+    
+    public function changeLang($lang){
+        app()->setLocale($lang);
+    }
+
+
+    public function getEstados(Request $request){
+         
+        if($request->has('id_pais')){
+            $pais= Pais::find($request->id_pais);
+            if($pais){
+                return  $pais->estados;
+            }else{
+                return null;
+            }
+        }else{
+            return null;
+        }
+        
+    }
+
+    
 }

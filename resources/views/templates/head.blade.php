@@ -9,7 +9,7 @@
          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.4/css/mdb.min.css">
-        <title>Laravel</title>
+        <title>Gym</title>
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
          <link rel="stylesheet" href="{!! asset('assets/css/main.min.css') !!}">
         <!-- Fonts -->
@@ -57,6 +57,19 @@
                     @endauth
                
             @endif
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Idioma</a>
+    <div class="dropdown-menu">
+        <span class="dropdown-item" href="#">Action</span>
+        <span class="dropdown-item" href="#">Action</span>
+        <span class="dropdown-item" href="#">Action</span>
+
+    </div>
+  </li>
+                                    
+                                    
+                                    
 
 			</ul>
 

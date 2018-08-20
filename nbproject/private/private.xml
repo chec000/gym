@@ -2,6 +2,31 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="New Group"/>
+        <group name="New Group">
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/welcome.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/UsuarioController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/en/pagination.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/Auth/LoginController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/HomeController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/ProductoServicioController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Middleware/EncryptCookies.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/en/header.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/ClienteController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/templates/footer.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/en/validation.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/cliente/addCliente.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/ReporteController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/templates/head.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/home.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/en/footer.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Middleware/CheckForMaintenanceMode.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Middleware/RedirectIfAuthenticated.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/templates/header.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/routes/web.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/app/Http/Controllers/indexController.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/es/footer.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/views/entrenador/listEntrenador.blade.php</file>
+            <file>file:/C:/wamp64/www/gymv1/gym/gym/gym/resources/lang/es/header.php</file>
+        </group>
     </open-files>
 </project-private>

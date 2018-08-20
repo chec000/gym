@@ -39,8 +39,11 @@ Route::post('/deporte/edit', 'DeporteController@updateCliente')->name('index');
 
 
 
+Route::get('/changeLang/{lang}', 'indexController@changeLang')->name('start');
 
 Route::get('/usuarios', 'UsuarioController@getUsuarios')->name('usuarios');
+
+Route::post('/getEstados', 'indexController@getEstados')->name('estados');
 
 
 
