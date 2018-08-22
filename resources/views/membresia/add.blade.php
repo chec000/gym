@@ -5,7 +5,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Register') }}
+                   <button class="btn btn-success">
+              <a style="color:black" href="{{route('list_membresia')}}">
+                 <i class="fa fa-undo"></i>
+                  Regresar</a>
+              </button>
+                </div>
 
                 <div class="card-body">
                   <form method="POST" action="{{ route('saveMembresia') }}" aria-label="{{ __('Register') }}" id="register">
@@ -37,33 +43,6 @@
                                 @endif
                             </div>
                         </div>
-
-<!--                                                  <div class="form-group row">
-                            <label for="horario_inicio" class="col-md-4 col-form-label text-md-right">{{ __('Hora inicio') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="horario_inicio" type="time" class="form-control{{ $errors->has('horario_inicio') ? ' is-invalid' : '' }}" name="horario_inicio" value="{{ old('horario_inicio') }}" required>
-
-                                @if ($errors->has('horario_inicio'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('horario_inicio') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                                    <div class="form-group row">
-                            <label for="horario_fin" class="col-md-4 col-form-label text-md-right">{{ __('Hora salida') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="horario_fin" type="time" class="form-control{{ $errors->has('horario_fin') ? ' is-invalid' : '' }}" name="horario_fin" value="{{ old('horario_fin') }}" required>
-
-                                @if ($errors->has('horario_fin'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('horario_fin') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>-->
                   
                         
                                     <div class="form-group row">

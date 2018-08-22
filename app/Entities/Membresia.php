@@ -22,5 +22,8 @@ class Membresia extends Eloquent
      *
      * @var array
      */
-
+    public  function tipo(){
+        return $this->hasOne('App\Entities\TipoMembresia','id','tipo_id');
+            
+           }
 }

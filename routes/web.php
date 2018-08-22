@@ -50,5 +50,10 @@ Route::post('/getPais', 'indexController@getPais')->name('pais');
 
 //Membresia controller
 Route::get('/admin/membresia/addMembresia', 'MembresiaController@getAdd')->name('addMembresia');
-
 Route::post('/admin/membresia/saveMembresia', 'MembresiaController@addMebrecia')->name('saveMembresia');
+Route::get('/admin/membresia/index', 'MembresiaController@index')->name('list_membresia');
+
+Route::post('/admin/membresia/changeStatus', 'MembresiaController@activeInactiveMembresia')->name('activeInactive');
+Route::get('/admin/membresia/membresia/{id}', 'MembresiaController@getMembresiaById')->name('getMembresia');
+Route::post('/admin/membresia/membresia/save', 'MembresiaController@updateMembrecia')->name('editMembresia');
+
