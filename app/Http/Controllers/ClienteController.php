@@ -14,12 +14,17 @@ class ClienteController extends Controller
            return View::make('cliente.listClientes')->render();             
     }
     public function getClientes(){
+    
         
     }
     
+    private function getUsers(){
+               $clientes= User::where('activo','=',1)->get();
+               return $clientes;
+    }
     public function  addClienteGet(){
-     return   View::make('cliente.addCliente')->render(); 
-         
+        
+     return   View::make('cliente.addCliente',array("users"=> $this->getUsers()))->render();          
     }
     
     public function getClienteUsuario(Request $request){
