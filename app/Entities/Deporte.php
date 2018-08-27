@@ -7,14 +7,14 @@ use Eloquent;
 class Deporte extends Eloquent
 {
     
- protected $table = 'users';
+ protected $table = 'deportes';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'codigo', 'nombres', 'apellidos','direccion','fecha_nacimiento','email','fecha_inscripcion','estado','foto',
+         'nombre', 'descripcion','active','foto',
     ];
 
     /**

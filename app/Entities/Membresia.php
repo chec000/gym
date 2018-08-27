@@ -14,7 +14,7 @@ class Membresia extends Eloquent
      * @var array
      */
     protected $fillable = [
-        'tipo_id', 'nombre', 'precio','requisitos','duracion'
+        'tipo_id', 'nombre', 'precio','requisitos','duracion','activo'
     ];
 
     /**
@@ -26,4 +26,13 @@ class Membresia extends Eloquent
         return $this->hasOne('App\Entities\TipoMembresia','id','tipo_id');
             
            }
-}
+           public function  deportes(){
+                              return $this->belongsToMany('App\Entities\Deporte', 'membresia_deporte', 'membresia_id', 'deporte_id');
+
+           }
+
+           public function  beneficios(){
+                       return $this->belongsToMany('App\Entities\Beneficio','beneficios_membresia','membresia_id','beneficio_id');
+           }
+
+           }

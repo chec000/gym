@@ -3,6 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+function activeDesactiveMembresia (id){
+ form = $("#active_membresia");
+   $("#id").val(id);
+            var membresia=$('#membresia_status-'+id);
+
+    $.ajax({
+        type: "POST",
+        url: form.attr('action'),
+        data: form.serialize()
+    }).done(function (data) {
+        if (data==="1") {
+          membresia.removeClass('badge-danger');
+           membresia.addClass('badge-success');       
+           membresia.text("activo");
+    }else{
+          membresia.removeClass('badge-success');
+           membresia.addClass('badge-danger');
+               membresia.text("inactivo");
+
+    }
+    })
+
+            .fail(function (data) {
+                console.log(data);
+            });
+   
+}
 
 function getEstadoPais(id_pais){
      var optVal= $("#pais option:selected").val();

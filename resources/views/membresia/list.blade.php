@@ -35,17 +35,15 @@
       <td>{{$m->precio}}</td>
        <td>{{$m->requisitos}}</td>
       <td>  
-      <span class="badge badge-{{($m->activo)==1?'success':'danger'}}">{{($m->activo)==1?'Activo':'Inactivo'}}</span>
+          <span  id="membresia_status-{{$m->id}}"  class="badge badge-{{($m->activo)==1?'success':'danger'}}">{{($m->activo)==1?'Activo':'Inactivo'}}</span>
       </td>
       <td>
           <span style="cursor: pointer " class="badge badge-light" onclick="activeDesactiveMembresia({{$m->id }})" data-toggle="tooltip" data-placement="top" title="{{($m->activo)==1?'Desactivar':'Activar'}}">
               <i class="fa fa-{{($m->activo)==1?'pause':'play'}}"></i>
           </span>          
           <a style="color:black" href=" {{route('getMembresia', [$m->id ])}}">
-              <span  style="cursor: pointer " class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="Editar">                            
-              
-              <i class="fa fa-edit"></i></span>   
-                            
+              <span  style="cursor: pointer " class="badge badge-primary" data-toggle="tooltip" data-placement="top" title="Editar">                                          
+              <i class="fa fa-edit"></i></span>                               
           </a>
         
              
@@ -56,5 +54,9 @@
 </table>  
   </div>
 </div>
+      <form method="POST" action="{{ route('activeInactive_membresia') }}" aria-label="{{ __('Register') }}" id="active_membresia">
+            @csrf
+          <input type="hidden" name="id" id="id">
+      </form>
 </div>
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{ __('Register') }}
                    <button class="btn btn-success">
@@ -73,7 +73,7 @@
                          <div class="form-group row">
                             <label for="duracion" class="col-md-4 col-form-label text-md-right">{{ __('Duración') }}</label>
                             <div class="col-md-6">
-                                <input id="duracion" type="text" class="form-control{{ $errors->has('duracion') ? ' is-invalid' : '' }}" name="duracion" value="{{ old('duracion') }}" required>
+                                <input id="duracion" type="date" class="form-control{{ $errors->has('duracion') ? ' is-invalid' : '' }}" name="duracion" value="{{ old('duracion') }}" required>
 
                                 @if ($errors->has('duracion'))
                                     <span class="invalid-feedback" role="alert">
@@ -82,7 +82,8 @@
                                 @endif
                             </div>
                         </div>
-                                    <div class="card">
+                        <div class="row">
+                            <div class="card col-md-6">
   <div class="card-header">Beneficios</div>
   <div class="card-body">
                   @foreach ($beneficios as $b)                              
@@ -93,7 +94,23 @@
                                   </div>
                   @endforeach                               
   </div> 
-</div>                          
+</div>     
+                        
+                                         <div class="card col-md-6">
+                        <div class="card-header">Beneficios</div>
+                        <div class="card-body">
+                  @foreach ($deportes as $b)                              
+                  <div class="form-check" style="display: inline-block">
+                                    <label class="form-check-label">
+                                      <input name="deporte[]" type="checkbox" class="form-check-input" value="{{$b->id}}">{{$b->nombre}}
+                                    </label>
+                                  </div>
+                  @endforeach                               
+                    </div> 
+                  </div> 
+                        
+              
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
