@@ -25,10 +25,11 @@ Route::get('/admin', 'HomeController@home')->name('admin');
 
 //Clientes
 Route::get('/admin/clientes/add', 'ClienteController@addClienteGet')->name('add_cliente');
-Route::post('/clientes/add', 'ClienteController@addCliente')->name('add');
-Route::get('admin/clientes/list', 'ClienteController@index')->name('index');
-Route::get('/clientes/edit/{id}', 'ClienteController@updateCliente')->name('edit_cliente');
-Route::post('/clientes/edit', 'ClienteController@saveUpdateCliente')->name('update_cliente');
+Route::post('/admin/clientes/add', 'ClienteController@addCliente')->name('add');
+Route::get('admin/clientes/list', 'ClienteController@index')->name('list_clientes');
+Route::get('/admin/clientes/edit/{id}', 'ClienteController@updateCliente')->name('edit_cliente');
+Route::post('/admin/clientes/edit', 'ClienteController@saveUpdateCliente')->name('update_cliente');
+Route::post('/admin/cliente/changeStatus', 'ClienteController@deleteCliente')->name('activeInactive_cliente');
 
 //Deportes
 Route::get('/deporte/add', 'DeporteController@addClienteGet')->name('add');

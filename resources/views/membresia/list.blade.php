@@ -13,7 +13,7 @@
   </div>
   <div class="card-body text-success">
     <h5 class="card-title">Success card title</h5>
-  <table class="table table-hover">
+    <table class="table table-hover" id="tbl_membresia">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -59,4 +59,8 @@
           <input type="hidden" name="id" id="id">
       </form>
 </div>
+   <script type="text/javascript">
+    $('#tbl_membresia').DataTable();
+
+</script>
 @endsection

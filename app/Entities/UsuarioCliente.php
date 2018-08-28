@@ -20,5 +20,5 @@ class UsuarioCliente extends Eloquent
     {
          return $this->belongsTo('App\User','id_usuario','id');
     }
-
+  public $timestamps = false;
 }

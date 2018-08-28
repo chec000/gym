@@ -6,7 +6,7 @@
     <div class="card" >
   <div class="card-body">
   
-      <table class="table table-striped">
+      <table class="table table-striped " id="tbl_clientes">
   <thead>
     <tr>
       <th scope="col">id</th>
@@ -33,7 +33,7 @@
        <td>{{$c->fecha_inscripcion}}</td>
        <td>{{$c->estado_cliente}}</td>                     
        <td>       
-              <span  id="membresia_status-{{$c->activo}}"  class="badge badge-{{($c->activo)==1?'success':'danger'}}">{{($c->activo)==1?'Activo':'Inactivo'}}</span>          
+              <span  id="cliente_status-{{$c->activo}}"  class="badge badge-{{($c->activo)==1?'success':'danger'}}">{{($c->activo)==1?'Activo':'Inactivo'}}</span>          
        </td>
        <td>
                     <span style="cursor: pointer " class="badge badge-light" onclick="activeDesactiveCliente({{$c->id }})" data-toggle="tooltip" data-placement="top" title="{{($c->activo)==1?'Desactivar':'Activar'}}">
@@ -49,8 +49,41 @@
   </tbody>
 </table>     
   </div>
+ <form method="POST" action="{{ route('activeInactive_cliente') }}" id="active_cliente">
+            @csrf
+          <input type="hidden" name="id" id="id">
+      </form>
 </div>
-    
+    <script type="text/javascript">
+//    $('#tbl_clientes').DataTable();
+function activeDesactiveCliente (id){
+ form = $("#active_cliente");
+   $("#id").val(id);
+            var cliente=$('#cliente_status-'+id);
+
+    $.ajax({
+        type: "POST",
+        url: form.attr('action'),
+        data: form.serialize()
+    }).done(function (data) {
+        if (data==="1") {
+          cliente.removeClass('badge-danger');
+           cliente.addClass('badge-success');       
+           cliente.text("activo");
+    }else{
+          cliente.removeClass('badge-success');
+           cliente.addClass('badge-danger');
+               cliente.text("inactivo");
+
+    }
+    })
+
+            .fail(function (data) {
+                console.log(data);
+            });
+   
+}
+</script>
 </div>
 
 @endsection

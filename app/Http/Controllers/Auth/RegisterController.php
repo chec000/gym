@@ -66,14 +66,32 @@ class RegisterController extends Controller
  protected function create(array $data)
 {
  
-//           $httpClient = new GuzzleAdapter;
-//    
-//           $provider = new \Geocoder\Provider\GoogleMaps\GoogleMaps($httpClient, null, 'AIzaSyBBmgIlPaMOTALtAFrpNzOSEpxEJHyoce4');
-//                $geocoder = new \Geocoder\StatefulGeocoder($provider, 'en');
-//                $location = $geocoder->reverse(20.673, -103.344)->first()->toArray();                
-//                           dd($location);
-                
-//                     $location = $geocoder->reverse($lat, $lon)->first()->toArray();
+    $user = User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'apellido_paterno'=>$data['apellido_paterno'],
+        'apellido_materno'=>$data['apellido_materno'],
+        'telefono'=>$data['telefono'],
+        'telefono_celular'=>$data['telefono_celular'],
+        'fecha_nacimiento'=>$data['fecha_nacimiento'],
+         'estado_civil'=>$data['estado_civil'],
+        'estado'=>$data['estado'], 
+        'ciudad'=>$data['estado'],
+        'direccion'=>$data['direccion'],
+        'pais'=>$data['pais'],           
+        'latitud'=>$data['lat'],
+        'longitud'=>$data['lon'],
+        'password' => bcrypt($data['password']),
+    ]);
+    $user
+        ->roles()
+        ->attach(Role::where('name', 'user')->first());
+    return $user;
+}
+
+public function createUser(array $data)
+{
+ 
     $user = User::create([
         'name' => $data['name'],
         'email' => $data['email'],

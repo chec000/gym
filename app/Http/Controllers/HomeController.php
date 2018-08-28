@@ -44,8 +44,7 @@ class HomeController extends Controller
         }
         
     }
-    
-    
+        
     private function getDataAdmin(){
         $membresiaController= new MembresiaController();
         $clienteController= new ClienteController();
