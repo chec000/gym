@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2018 at 12:46 AM
--- Server version: 5.7.21
+-- Generation Time: Aug 28, 2018 at 05:29 PM
+-- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `gymdb`
 --
-CREATE DATABASE IF NOT EXISTS `gymdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `gymdb`;
 
 -- --------------------------------------------------------
 
@@ -60,14 +58,26 @@ INSERT INTO `beneficios` (`id`, `nombre`, `descripcion`, `activo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `beneficios_membrecia`
+-- Table structure for table `beneficios_membresia`
 --
 
-CREATE TABLE `beneficios_membrecia` (
+CREATE TABLE `beneficios_membresia` (
   `id` int(11) NOT NULL,
   `membresia_id` int(11) NOT NULL,
   `beneficio_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `beneficios_membresia`
+--
+
+INSERT INTO `beneficios_membresia` (`id`, `membresia_id`, `beneficio_id`) VALUES
+(1, 1, 1),
+(2, 1, 1),
+(3, 1, 1),
+(4, 3, 1),
+(5, 3, 2),
+(12, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -99,17 +109,18 @@ CREATE TABLE `caracteristicas_cliente` (
 
 CREATE TABLE `cliente` (
   `id` int(10) NOT NULL,
-  `codigo` int(10) NOT NULL,
-  `nombres` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `apellidos` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `telefono` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
   `fecha_inscripcion` date NOT NULL,
   `id_usuario` int(10) NOT NULL,
-  `estado` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
-  `foto` longblob
+  `estado_cliente` enum('Al dia','Atrasado') COLLATE utf8_spanish_ci NOT NULL,
+  `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `cliente`
+--
+
+INSERT INTO `cliente` (`id`, `fecha_inscripcion`, `id_usuario`, `estado_cliente`, `activo`) VALUES
+(1, '2018-08-14', 5, 'Atrasado', b'1');
 
 -- --------------------------------------------------------
 
@@ -197,11 +208,18 @@ CREATE TABLE `contacto_cliente` (
 
 CREATE TABLE `deportes` (
   `id` int(10) NOT NULL,
+  `nombre` varchar(70) COLLATE utf8_spanish2_ci NOT NULL,
   `descripcion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
-  `precio` int(10) NOT NULL,
-  `id_entrenador` int(10) NOT NULL,
-  `active` bit(1) NOT NULL
+  `foto` varchar(300) COLLATE utf8_spanish2_ci NOT NULL,
+  `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Dumping data for table `deportes`
+--
+
+INSERT INTO `deportes` (`id`, `nombre`, `descripcion`, `foto`, `activo`) VALUES
+(3, 'asah', 'ghhsags', 'hhghghas', b'1');
 
 -- --------------------------------------------------------
 
@@ -320,6 +338,13 @@ CREATE TABLE `entrenadores` (
   `estado` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
   `foto` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Dumping data for table `entrenadores`
+--
+
+INSERT INTO `entrenadores` (`id`, `codigo`, `nombres`, `apellidos`, `direccion`, `telefono`, `fecha_nacimiento`, `fecha_registro`, `id_usuario`, `estado`, `foto`) VALUES
+(1, 'jeghgsd', 1, 'hghg', 'jhajhsajhsajh', '787878', '2018-08-21', '2018-08-21', 7, '1', '');
 
 -- --------------------------------------------------------
 
@@ -2406,7 +2431,8 @@ CREATE TABLE `membresias` (
   `tipo_id` int(11) NOT NULL,
   `precio` int(10) NOT NULL,
   `requisitos` varchar(400) COLLATE utf8_spanish_ci NOT NULL,
-  `duracion` int(11) NOT NULL,
+  `duracion` date NOT NULL,
+  `activo` bit(1) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
@@ -2415,8 +2441,11 @@ CREATE TABLE `membresias` (
 -- Dumping data for table `membresias`
 --
 
-INSERT INTO `membresias` (`id`, `nombre`, `tipo_id`, `precio`, `requisitos`, `duracion`, `created_at`, `updated_at`) VALUES
-(1, 'qwqw', 1, 23, 'wewe', 23, '2018-08-20 22:45:04', '2018-08-20 22:45:04');
+INSERT INTO `membresias` (`id`, `nombre`, `tipo_id`, `precio`, `requisitos`, `duracion`, `activo`, `created_at`, `updated_at`) VALUES
+(1, 'qwqw', 1, 23, 'wewe', '0000-00-00', b'1', '2018-08-20 22:45:04', '2018-08-27 03:47:40'),
+(2, 'hjhajsh', 1, 6, 'ashajsh', '2018-08-31', b'1', '2018-08-27 03:50:59', '2018-08-27 03:50:59'),
+(3, 'jhhjh', 1, 67, 'gg', '2019-02-03', b'1', '2018-08-27 04:05:41', '2018-08-27 04:05:41'),
+(4, 'prueba n', 1, 67, 'hghgh', '2020-03-29', b'1', '2018-08-27 04:05:56', '2018-08-27 04:05:56');
 
 -- --------------------------------------------------------
 
@@ -2426,9 +2455,18 @@ INSERT INTO `membresias` (`id`, `nombre`, `tipo_id`, `precio`, `requisitos`, `du
 
 CREATE TABLE `membresia_deporte` (
   `id` int(11) NOT NULL,
-  `id_deporte` int(11) NOT NULL,
-  `id_membresia` int(11) NOT NULL
+  `deporte_id` int(11) NOT NULL,
+  `membresia_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `membresia_deporte`
+--
+
+INSERT INTO `membresia_deporte` (`id`, `deporte_id`, `membresia_id`) VALUES
+(1, 3, 1),
+(2, 3, 1),
+(3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -2837,7 +2875,8 @@ CREATE TABLE `tipomembresia` (
 --
 
 INSERT INTO `tipomembresia` (`id`, `nombre`, `descripcion`, `activo`) VALUES
-(1, 'coorporativo', 'asasas', b'1');
+(1, 'coorporativo', 'asasas', b'1'),
+(2, 'familiar', 'jhjshajh', b'1');
 
 -- --------------------------------------------------------
 
@@ -2921,9 +2960,9 @@ ALTER TABLE `beneficios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `beneficios_membrecia`
+-- Indexes for table `beneficios_membresia`
 --
-ALTER TABLE `beneficios_membrecia`
+ALTER TABLE `beneficios_membresia`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2978,8 +3017,7 @@ ALTER TABLE `contacto_cliente`
 -- Indexes for table `deportes`
 --
 ALTER TABLE `deportes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `entranador_deporte_idx` (`id_entrenador`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `deportes_cliente`
@@ -3181,10 +3219,10 @@ ALTER TABLE `beneficios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `beneficios_membrecia`
+-- AUTO_INCREMENT for table `beneficios_membresia`
 --
-ALTER TABLE `beneficios_membrecia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `beneficios_membresia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `caracteristicas_cliente`
@@ -3196,7 +3234,7 @@ ALTER TABLE `caracteristicas_cliente`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cliente_dieta`
@@ -3232,7 +3270,7 @@ ALTER TABLE `contacto_cliente`
 -- AUTO_INCREMENT for table `deportes`
 --
 ALTER TABLE `deportes`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `deportes_cliente`
@@ -3280,7 +3318,7 @@ ALTER TABLE `encuestas`
 -- AUTO_INCREMENT for table `entrenadores`
 --
 ALTER TABLE `entrenadores`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `estado`
@@ -3316,13 +3354,13 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT for table `membresias`
 --
 ALTER TABLE `membresias`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `membresia_deporte`
 --
 ALTER TABLE `membresia_deporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -3382,7 +3420,7 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `tipomembresia`
 --
 ALTER TABLE `tipomembresia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -3436,12 +3474,6 @@ ALTER TABLE `comentarios`
 --
 ALTER TABLE `contacto_cliente`
   ADD CONSTRAINT `contacto_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `deportes`
---
-ALTER TABLE `deportes`
-  ADD CONSTRAINT `entranador_deporte` FOREIGN KEY (`id_entrenador`) REFERENCES `entrenadores` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `deportes_cliente`

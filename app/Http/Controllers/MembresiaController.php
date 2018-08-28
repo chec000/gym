@@ -14,10 +14,16 @@ class MembresiaController extends Controller
     
     
     public function index(){
-
-       $membresias= Membresia::with('tipo')->get();    
+       $membresias= $this->getListMembresias();
       return   View::make('membresia.list',array("membresias"=>$membresias))->render();   
     }
+    
+    public function getListMembresias(){
+               $membresias= Membresia::with('tipo')->get();    
+                return $membresias;
+    }
+    
+    
     public function getAdd(){
         $tipo= $this->tipos();
         $beneficios= $this->beneficios();

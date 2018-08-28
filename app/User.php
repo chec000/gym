@@ -63,4 +63,8 @@ public function hasRole($role)
     }
     return false;
 }
+public function cliente(){
+    return $this->hasOne('App\Entities\UsuarioCliente','id_usuario');
+}
+
 }

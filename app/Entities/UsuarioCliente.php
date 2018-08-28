@@ -4,7 +4,7 @@ namespace App\Entities;
 
 
 use Eloquent;
-class Cliente extends Eloquent
+class UsuarioCliente extends Eloquent
 {
     
  protected $table = 'cliente';
@@ -16,11 +16,9 @@ class Cliente extends Eloquent
     protected $fillable = [
         'fecha_inscripcion', 'id_usuario', 'estado',
     ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
+  public function usuario()
+    {
+         return $this->belongsTo('App\User','id_usuario','id');
+    }
 
 }

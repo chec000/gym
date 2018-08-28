@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\MembresiaController;
+use App\Http\Controllers\ClienteController;
+
 use View;
 class HomeController extends Controller
 {
@@ -29,14 +32,38 @@ class HomeController extends Controller
     
         switch ($request->user()->roles[0]->id){
         case 1:
-        return view('admin/admin');
-            break;       
+            
+//             $this->getDataAdmin()['membresias'];
+        return View::make('admin/admin',
+                array("data"=>        
+            $this->getDataAdmin()))->render();
+        
         case 2;
                       return view('home');
-            break;;
+      
         }
         
     }
+    
+    
+    private function getDataAdmin(){
+        $membresiaController= new MembresiaController();
+        $clienteController= new ClienteController();
+       $menbresias= $membresiaController->getListMembresias();
+        $clientes=$clienteController->getClientes();
+        $clientes_atrasados=$clienteController->getClientesAtrasados();
+        $ventas="";        
+        $links="";
+        
+        $data=array(
+            'membresias'=>count($menbresias),
+            'clientes'=>count($clientes),
+            'ventas'=>0,
+            'clientes_atrasados'=>count($clientes_atrasados),
+            'links'=>$links
+        );
+        return $data;
+        }
     
     public function home(){                        
       return view('admin/admin');

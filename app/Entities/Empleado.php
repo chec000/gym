@@ -4,17 +4,17 @@ namespace App\Entities;
 
 
 use Eloquent;
-class Cliente extends Eloquent
+class Empleado extends Eloquent
 {
     
- protected $table = 'users';
+ protected $table = 'empleado';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'codigo', 'nombres', 'apellidos','direccion','fecha_nacimiento','email','fecha_inscripcion','estado','foto',
+        'fecha_inscripcion', 'id_usuario', 'estado',
     ];
 
     /**

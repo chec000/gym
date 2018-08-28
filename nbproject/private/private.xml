@@ -4,12 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="New Group">
             <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/ClienteController.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/app/Entities/Membresia.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/membresia/edit.blade.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/membresia/list.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/User.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/addCliente.blade.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/MembresiaController.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Entities/UsuarioCliente.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/updateCliente.blade.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/routes/web.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/public/js/main.js</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/listClientes.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/membresia/add.blade.php</file>
         </group>
     </open-files>

@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Entities\Cliente;
 use App\User;
 use View;
+use App\Entities\UsuarioCliente;
+
 class ClienteController extends Controller
 {
    
       public function index(){      
-          
-           return View::make('cliente.listClientes')->render();             
+          $clientes= $this->getClientes();
+      
+           return View::make('cliente.listClientes',array('clientes'=>$clientes))->render();             
     }
-    public function getClientes(){
     
-        
+    public function getClientes(){    
+    $cliente=UsuarioCliente::with('usuario')->where('activo','=',1)->get();
+   
+    return $cliente;
+    }
+      public function getClientesAtrasados(){    
+             $cliente=UsuarioCliente::where([['activo','=',1],['estado_cliente','=','Atrasado']])->get();
+        return $cliente;
     }
     
     private function getUsers(){
@@ -44,7 +52,7 @@ class ClienteController extends Controller
     public function deleteCliente(){
         
     }
-    public function updateCliente(){
+    public function updateCliente($id){
             return View::make('cliente.updateCliente')->render();          
     }
 
