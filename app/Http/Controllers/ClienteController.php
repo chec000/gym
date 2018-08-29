@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use View;
 use App\Entities\UsuarioCliente;
+use App\Entities\Pais;
+use App\Entities\Membresia;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\DB;
@@ -34,8 +36,12 @@ class ClienteController extends Controller {
     }
 
     public function addClienteGet() {
-
-        return View::make('cliente.addCliente', array("users" => $this->getUsers()))->render();
+            $paises= Pais::where('activo','=',1)->get();
+            $membresias= Membresia::where('activo','=',1)->get();
+//            dd($membresias);
+             return View::make('cliente.addCliente'
+                ,array('paises'=>$paises,'membresias'=>$membresias)
+                )->render();
     }
 
     public function getClienteUsuario(Request $request) {

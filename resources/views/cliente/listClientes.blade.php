@@ -5,6 +5,8 @@
   
     <div class="card" >
   <div class="card-body">
+            <a href="{{route('add_cliente_view')}}" class="small-box-footer">Agregar cliente <i class="fa fa-arrow-circle-right"></i></a>
+           
   
       <table class="table table-striped " id="tbl_clientes">
   <thead>

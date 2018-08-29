@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'HomeController@home')->name('admin');
 
 //Clientes
-Route::get('/admin/clientes/add', 'ClienteController@addClienteGet')->name('add_cliente');
+Route::get('/admin/clientes/addCliente', 'ClienteController@addClienteGet')->name('add_cliente_view');
 Route::post('/admin/clientes/add', 'ClienteController@addCliente')->name('add');
 Route::get('admin/clientes/list', 'ClienteController@index')->name('list_clientes');
 Route::get('/admin/clientes/edit/{id}', 'ClienteController@updateCliente')->name('edit_cliente');

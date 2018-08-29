@@ -6,13 +6,26 @@
             <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/ClienteController.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/app/User.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/addCliente.blade.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/MembresiaController.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/membresia/list.blade.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/app/Entities/UsuarioCliente.php</file>
-            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/updateCliente.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Entities/Estado.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/indexController.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/routes/web.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Entities/Pais.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/admin/admin.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/ControlController.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/Auth/RegisterController.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/MembresiaController.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/updateCliente.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/public/css/app.css</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/auth/register.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/bootstrap/app.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/public/js/main.js</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/listClientes.blade.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/app/Http/Controllers/HomeController.php</file>
             <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/membresia/add.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/layouts/app.blade.php</file>
+            <file>file:/C:/xampp/htdocs/GYM/gym/resources/views/cliente/historial.blade.php</file>
         </group>
     </open-files>
 </project-private>

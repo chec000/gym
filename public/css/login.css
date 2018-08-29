@@ -1,5 +1,9 @@
-body{background: url(/img/fondo.jpg) no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
-	form{opacity: 0.8; transition: 3s; margin-top: 30px;}
+body{
+    
+    
+
+
+form{opacity: 0.8; transition: 3s; margin-top: 30px;}
 	form:hover{opacity: 9;}
   	.form-simple .font-small {font-size: 0.8rem;}
 	.form-simple .header {border-top-left-radius: .3rem; border-top-right-radius: .3rem; }
