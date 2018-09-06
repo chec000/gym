@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2018 at 05:29 PM
+-- Generation Time: Sep 06, 2018 at 08:01 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -77,7 +77,14 @@ INSERT INTO `beneficios_membresia` (`id`, `membresia_id`, `beneficio_id`) VALUES
 (3, 1, 1),
 (4, 3, 1),
 (5, 3, 2),
-(12, 4, 2);
+(13, 6, 2),
+(12, 4, 2),
+(14, 7, 2),
+(15, 8, 1),
+(16, 9, 2),
+(17, 10, 2),
+(18, 11, 2),
+(19, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -209,7 +216,7 @@ CREATE TABLE `contacto_cliente` (
 CREATE TABLE `deportes` (
   `id` int(10) NOT NULL,
   `nombre` varchar(70) COLLATE utf8_spanish2_ci NOT NULL,
-  `descripcion` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `descripcion` text COLLATE utf8_spanish2_ci NOT NULL,
   `foto` varchar(300) COLLATE utf8_spanish2_ci NOT NULL,
   `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -219,7 +226,12 @@ CREATE TABLE `deportes` (
 --
 
 INSERT INTO `deportes` (`id`, `nombre`, `descripcion`, `foto`, `activo`) VALUES
-(3, 'asah', 'ghhsags', 'hhghghas', b'1');
+(3, 'asah', 'ghhsags', 'hhghghas', b'1'),
+(4, 'REMOELASTIC', 'Coje resistencia y mejora tu capacidad cardio pulmonar con uno de los aparatos mas exigentes como es el Remo y combínalo con diversos movimientos funcionales consiguiendo mejorar tu resistencia, movilidad, fuerza con unos movimientos libres de cargas articulares, esta vez queremos exprimir al máximo las posibilidades de las bandas elásticas, atrevete a mejorar', 'test', b'1'),
+(5, 'BALLET FIT', 'Tonifica tu cuerpo, incrementa tu fuerza y coordinación y mejora tu equilibrio y flexibilidad con Ballet Fit, una innovadora disciplina que combina los clásicos movimientos del ballet con elementos fitness para lograr un máximo rendimiento en cada sesión. Apta para todas las edades y sexos, esta nueva tendencia deportiva intercala trabajo cardiovascular, movilidad articular y tonificación para conseguir moldear el cuerpo y ganar agilidad. Un entrenamiento muy completo que te ayudará a ponerte en forma mientras te diviertes bailando', 'test', b'0'),
+(6, 'ssas', 'asas', 'test', b'1'),
+(7, 'ssas', 'asas', 'test', b'1'),
+(8, 'sergio', 'galindo', 'test', b'1');
 
 -- --------------------------------------------------------
 
@@ -2442,10 +2454,18 @@ CREATE TABLE `membresias` (
 --
 
 INSERT INTO `membresias` (`id`, `nombre`, `tipo_id`, `precio`, `requisitos`, `duracion`, `activo`, `created_at`, `updated_at`) VALUES
-(1, 'qwqw', 1, 23, 'wewe', '0000-00-00', b'1', '2018-08-20 22:45:04', '2018-08-27 03:47:40'),
-(2, 'hjhajsh', 1, 6, 'ashajsh', '2018-08-31', b'1', '2018-08-27 03:50:59', '2018-08-27 03:50:59'),
-(3, 'jhhjh', 1, 67, 'gg', '2019-02-03', b'1', '2018-08-27 04:05:41', '2018-08-27 04:05:41'),
-(4, 'prueba n', 1, 67, 'hghgh', '2020-03-29', b'1', '2018-08-27 04:05:56', '2018-08-27 04:05:56');
+(1, 'membresias', 1, 23, 'wewe', '0000-00-00', b'1', '2018-08-20 22:45:04', '2018-08-27 03:47:40'),
+(2, 'membresias', 1, 6, 'ashajsh', '2018-08-31', b'1', '2018-08-27 03:50:59', '2018-08-27 03:50:59'),
+(3, 'membresias', 1, 67, 'gg', '2019-02-03', b'1', '2018-08-27 04:05:41', '2018-08-27 04:05:41'),
+(4, 'membresias', 1, 67, 'hghgh', '2020-03-29', b'1', '2018-08-27 04:05:56', '2018-08-27 04:05:56'),
+(5, 'membresias', 1, 34, '343', '2018-08-18', b'1', '2018-08-28 18:01:14', '2018-08-28 18:01:14'),
+(6, 'membresias', 1, 56, '565', '2018-08-12', b'1', '2018-08-28 18:01:30', '2018-08-28 18:01:30'),
+(7, 'membresias', 1, 34, '343', '2018-08-10', b'1', '2018-08-28 18:02:49', '2018-08-28 18:02:49'),
+(8, 'membresias', 1, 344, '34343', '2018-08-26', b'1', '2018-08-28 18:03:02', '2018-08-28 18:03:02'),
+(9, 'membresias', 1, 4, '34ds', '2018-08-26', b'1', '2018-08-28 18:03:16', '2018-08-28 18:03:16'),
+(10, 'membresias', 1, 34, '45', '2018-08-25', b'1', '2018-08-28 18:03:31', '2018-08-28 18:03:31'),
+(11, 'membresias', 1, 34, 'asa', '2018-08-18', b'1', '2018-08-28 18:03:42', '2018-08-28 18:03:42'),
+(12, 'membresias', 1, 34, 'wwds', '2018-08-25', b'1', '2018-08-28 19:21:06', '2018-08-28 19:21:06');
 
 -- --------------------------------------------------------
 
@@ -2466,7 +2486,14 @@ CREATE TABLE `membresia_deporte` (
 INSERT INTO `membresia_deporte` (`id`, `deporte_id`, `membresia_id`) VALUES
 (1, 3, 1),
 (2, 3, 1),
-(3, 3, 3);
+(3, 3, 3),
+(6, 3, 6),
+(7, 3, 7),
+(8, 3, 8),
+(9, 3, 9),
+(10, 3, 10),
+(11, 3, 11),
+(12, 3, 12);
 
 -- --------------------------------------------------------
 
@@ -2491,233 +2518,281 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `objetivos_as_deporte`
+--
+
+CREATE TABLE `objetivos_as_deporte` (
+  `id` int(11) NOT NULL,
+  `deporte_id` int(11) NOT NULL,
+  `objetivo_deporte_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `objetivos_as_deporte`
+--
+
+INSERT INTO `objetivos_as_deporte` (`id`, `deporte_id`, `objetivo_deporte_id`) VALUES
+(1, 3, 1),
+(2, 3, 2),
+(3, 6, 1),
+(4, 6, 2),
+(5, 7, 1),
+(6, 7, 2),
+(7, 8, 1),
+(8, 8, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `objetivos_deporte`
+--
+
+CREATE TABLE `objetivos_deporte` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(200) NOT NULL,
+  `descripcion` text NOT NULL,
+  `activo` bit(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `objetivos_deporte`
+--
+
+INSERT INTO `objetivos_deporte` (`id`, `nombre`, `descripcion`, `activo`) VALUES
+(1, 'Mejora la elasticidad y flexibilidad.', 'Mejora la elasticidad y flexibilidad.Mejora la elasticidad y flexibilidad.Mejora la elasticidad y flexibilidad.', b'1'),
+(2, 'Refuerza el core.', 'Refuerza el core.Refuerza el core.Refuerza el core.Refuerza el core.', b'1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pais`
 --
 
 CREATE TABLE `pais` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+  `nombre` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `activo` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `pais`
 --
 
-INSERT INTO `pais` (`id`, `nombre`) VALUES
-(1, 'Australia'),
-(2, 'Austria'),
-(3, 'Azerbaiyán'),
-(4, 'Anguilla'),
-(5, 'Argentina'),
-(6, 'Armenia'),
-(7, 'Bielorrusia'),
-(8, 'Belice'),
-(9, 'Bélgica'),
-(10, 'Bermudas'),
-(11, 'Bulgaria'),
-(12, 'Brasil'),
-(13, 'Reino Unido'),
-(14, 'Hungría'),
-(15, 'Vietnam'),
-(16, 'Haiti'),
-(17, 'Guadalupe'),
-(18, 'Alemania'),
-(19, 'Países Bajos, Holanda'),
-(20, 'Grecia'),
-(21, 'Georgia'),
-(22, 'Dinamarca'),
-(23, 'Egipto'),
-(24, 'Israel'),
-(25, 'India'),
-(26, 'Irán'),
-(27, 'Irlanda'),
-(28, 'España'),
-(29, 'Italia'),
-(30, 'Kazajstán'),
-(31, 'Camerún'),
-(32, 'Canadá'),
-(33, 'Chipre'),
-(34, 'Kirguistán'),
-(35, 'China'),
-(36, 'Costa Rica'),
-(37, 'Kuwait'),
-(38, 'Letonia'),
-(39, 'Libia'),
-(40, 'Lituania'),
-(41, 'Luxemburgo'),
-(42, 'México'),
-(43, 'Moldavia'),
-(44, 'Mónaco'),
-(45, 'Nueva Zelanda'),
-(46, 'Noruega'),
-(47, 'Polonia'),
-(48, 'Portugal'),
-(49, 'Reunión'),
-(50, 'Rusia'),
-(51, 'El Salvador'),
-(52, 'Eslovaquia'),
-(53, 'Eslovenia'),
-(54, 'Surinam'),
-(55, 'Estados Unidos'),
-(56, 'Tadjikistan'),
-(57, 'Turkmenistan'),
-(58, 'Islas Turcas y Caicos'),
-(59, 'Turquía'),
-(60, 'Uganda'),
-(61, 'Uzbekistán'),
-(62, 'Ucrania'),
-(63, 'Finlandia'),
-(64, 'Francia'),
-(65, 'República Checa'),
-(66, 'Suiza'),
-(67, 'Suecia'),
-(68, 'Estonia'),
-(69, 'Corea del Sur'),
-(70, 'Japón'),
-(71, 'Croacia'),
-(72, 'Rumanía'),
-(73, 'Hong Kong'),
-(74, 'Indonesia'),
-(75, 'Jordania'),
-(76, 'Malasia'),
-(77, 'Singapur'),
-(78, 'Taiwan'),
-(79, 'Bosnia y Herzegovina'),
-(80, 'Bahamas'),
-(81, 'Chile'),
-(82, 'Colombia'),
-(83, 'Islandia'),
-(84, 'Corea del Norte'),
-(85, 'Macedonia'),
-(86, 'Malta'),
-(87, 'Pakistán'),
-(88, 'Papúa-Nueva Guinea'),
-(89, 'Perú'),
-(90, 'Filipinas'),
-(91, 'Arabia Saudita'),
-(92, 'Tailandia'),
-(93, 'Emiratos árabes Unidos'),
-(94, 'Groenlandia'),
-(95, 'Venezuela'),
-(96, 'Zimbabwe'),
-(97, 'Kenia'),
-(98, 'Algeria'),
-(99, 'Líbano'),
-(100, 'Botsuana'),
-(101, 'Tanzania'),
-(102, 'Namibia'),
-(103, 'Ecuador'),
-(104, 'Marruecos'),
-(105, 'Ghana'),
-(106, 'Siria'),
-(107, 'Nepal'),
-(108, 'Mauritania'),
-(109, 'Seychelles'),
-(110, 'Paraguay'),
-(111, 'Uruguay'),
-(112, 'Congo (Brazzaville)'),
-(113, 'Cuba'),
-(114, 'Albania'),
-(115, 'Nigeria'),
-(116, 'Zambia'),
-(117, 'Mozambique'),
-(119, 'Angola'),
-(120, 'Sri Lanka'),
-(121, 'Etiopía'),
-(122, 'Túnez'),
-(123, 'Bolivia'),
-(124, 'Panamá'),
-(125, 'Malawi'),
-(126, 'Liechtenstein'),
-(127, 'Bahrein'),
-(128, 'Barbados'),
-(130, 'Chad'),
-(131, 'Man, Isla de'),
-(132, 'Jamaica'),
-(133, 'Malí'),
-(134, 'Madagascar'),
-(135, 'Senegal'),
-(136, 'Togo'),
-(137, 'Honduras'),
-(138, 'República Dominicana'),
-(139, 'Mongolia'),
-(140, 'Irak'),
-(141, 'Sudáfrica'),
-(142, 'Aruba'),
-(143, 'Gibraltar'),
-(144, 'Afganistán'),
-(145, 'Andorra'),
-(147, 'Antigua y Barbuda'),
-(149, 'Bangladesh'),
-(151, 'Benín'),
-(152, 'Bután'),
-(154, 'Islas Virgenes Británicas'),
-(155, 'Brunéi'),
-(156, 'Burkina Faso'),
-(157, 'Burundi'),
-(158, 'Camboya'),
-(159, 'Cabo Verde'),
-(164, 'Comores'),
-(165, 'Congo (Kinshasa)'),
-(166, 'Cook, Islas'),
-(168, 'Costa de Marfil'),
-(169, 'Djibouti, Yibuti'),
-(171, 'Timor Oriental'),
-(172, 'Guinea Ecuatorial'),
-(173, 'Eritrea'),
-(175, 'Feroe, Islas'),
-(176, 'Fiyi'),
-(178, 'Polinesia Francesa'),
-(180, 'Gabón'),
-(181, 'Gambia'),
-(184, 'Granada'),
-(185, 'Guatemala'),
-(186, 'Guernsey'),
-(187, 'Guinea'),
-(188, 'Guinea-Bissau'),
-(189, 'Guyana'),
-(193, 'Jersey'),
-(195, 'Kiribati'),
-(196, 'Laos'),
-(197, 'Lesotho'),
-(198, 'Liberia'),
-(200, 'Maldivas'),
-(201, 'Martinica'),
-(202, 'Mauricio'),
-(205, 'Myanmar'),
-(206, 'Nauru'),
-(207, 'Antillas Holandesas'),
-(208, 'Nueva Caledonia'),
-(209, 'Nicaragua'),
-(210, 'Níger'),
-(212, 'Norfolk Island'),
-(213, 'Omán'),
-(215, 'Isla Pitcairn'),
-(216, 'Qatar'),
-(217, 'Ruanda'),
-(218, 'Santa Elena'),
-(219, 'San Cristobal y Nevis'),
-(220, 'Santa Lucía'),
-(221, 'San Pedro y Miquelón'),
-(222, 'San Vincente y Granadinas'),
-(223, 'Samoa'),
-(224, 'San Marino'),
-(225, 'San Tomé y Príncipe'),
-(226, 'Serbia y Montenegro'),
-(227, 'Sierra Leona'),
-(228, 'Islas Salomón'),
-(229, 'Somalia'),
-(232, 'Sudán'),
-(234, 'Swazilandia'),
-(235, 'Tokelau'),
-(236, 'Tonga'),
-(237, 'Trinidad y Tobago'),
-(239, 'Tuvalu'),
-(240, 'Vanuatu'),
-(241, 'Wallis y Futuna'),
-(242, 'Sáhara Occidental'),
-(243, 'Yemen'),
-(246, 'Puerto Rico');
+INSERT INTO `pais` (`id`, `nombre`, `activo`) VALUES
+(1, 'Australia', b'1'),
+(2, 'Austria', b'1'),
+(3, 'Azerbaiyán', b'1'),
+(4, 'Anguilla', b'1'),
+(5, 'Argentina', b'1'),
+(6, 'Armenia', b'1'),
+(7, 'Bielorrusia', b'1'),
+(8, 'Belice', b'1'),
+(9, 'Bélgica', b'1'),
+(10, 'Bermudas', b'1'),
+(11, 'Bulgaria', b'1'),
+(12, 'Brasil', b'1'),
+(13, 'Reino Unido', b'1'),
+(14, 'Hungría', b'1'),
+(15, 'Vietnam', b'1'),
+(16, 'Haiti', b'1'),
+(17, 'Guadalupe', b'1'),
+(18, 'Alemania', b'1'),
+(19, 'Países Bajos, Holanda', b'1'),
+(20, 'Grecia', b'1'),
+(21, 'Georgia', b'1'),
+(22, 'Dinamarca', b'1'),
+(23, 'Egipto', b'1'),
+(24, 'Israel', b'1'),
+(25, 'India', b'1'),
+(26, 'Irán', b'1'),
+(27, 'Irlanda', b'1'),
+(28, 'España', b'1'),
+(29, 'Italia', b'1'),
+(30, 'Kazajstán', b'1'),
+(31, 'Camerún', b'1'),
+(32, 'Canadá', b'1'),
+(33, 'Chipre', b'1'),
+(34, 'Kirguistán', b'1'),
+(35, 'China', b'1'),
+(36, 'Costa Rica', b'1'),
+(37, 'Kuwait', b'1'),
+(38, 'Letonia', b'1'),
+(39, 'Libia', b'1'),
+(40, 'Lituania', b'1'),
+(41, 'Luxemburgo', b'1'),
+(42, 'México', b'1'),
+(43, 'Moldavia', b'1'),
+(44, 'Mónaco', b'1'),
+(45, 'Nueva Zelanda', b'1'),
+(46, 'Noruega', b'1'),
+(47, 'Polonia', b'1'),
+(48, 'Portugal', b'1'),
+(49, 'Reunión', b'1'),
+(50, 'Rusia', b'1'),
+(51, 'El Salvador', b'1'),
+(52, 'Eslovaquia', b'1'),
+(53, 'Eslovenia', b'1'),
+(54, 'Surinam', b'1'),
+(55, 'Estados Unidos', b'1'),
+(56, 'Tadjikistan', b'1'),
+(57, 'Turkmenistan', b'1'),
+(58, 'Islas Turcas y Caicos', b'1'),
+(59, 'Turquía', b'1'),
+(60, 'Uganda', b'1'),
+(61, 'Uzbekistán', b'1'),
+(62, 'Ucrania', b'1'),
+(63, 'Finlandia', b'1'),
+(64, 'Francia', b'1'),
+(65, 'República Checa', b'1'),
+(66, 'Suiza', b'1'),
+(67, 'Suecia', b'1'),
+(68, 'Estonia', b'1'),
+(69, 'Corea del Sur', b'1'),
+(70, 'Japón', b'1'),
+(71, 'Croacia', b'1'),
+(72, 'Rumanía', b'1'),
+(73, 'Hong Kong', b'1'),
+(74, 'Indonesia', b'1'),
+(75, 'Jordania', b'1'),
+(76, 'Malasia', b'1'),
+(77, 'Singapur', b'1'),
+(78, 'Taiwan', b'1'),
+(79, 'Bosnia y Herzegovina', b'1'),
+(80, 'Bahamas', b'1'),
+(81, 'Chile', b'1'),
+(82, 'Colombia', b'1'),
+(83, 'Islandia', b'1'),
+(84, 'Corea del Norte', b'1'),
+(85, 'Macedonia', b'1'),
+(86, 'Malta', b'1'),
+(87, 'Pakistán', b'1'),
+(88, 'Papúa-Nueva Guinea', b'1'),
+(89, 'Perú', b'1'),
+(90, 'Filipinas', b'1'),
+(91, 'Arabia Saudita', b'1'),
+(92, 'Tailandia', b'1'),
+(93, 'Emiratos árabes Unidos', b'1'),
+(94, 'Groenlandia', b'1'),
+(95, 'Venezuela', b'1'),
+(96, 'Zimbabwe', b'1'),
+(97, 'Kenia', b'1'),
+(98, 'Algeria', b'1'),
+(99, 'Líbano', b'1'),
+(100, 'Botsuana', b'1'),
+(101, 'Tanzania', b'1'),
+(102, 'Namibia', b'1'),
+(103, 'Ecuador', b'1'),
+(104, 'Marruecos', b'1'),
+(105, 'Ghana', b'1'),
+(106, 'Siria', b'1'),
+(107, 'Nepal', b'1'),
+(108, 'Mauritania', b'1'),
+(109, 'Seychelles', b'1'),
+(110, 'Paraguay', b'1'),
+(111, 'Uruguay', b'1'),
+(112, 'Congo (Brazzaville)', b'1'),
+(113, 'Cuba', b'1'),
+(114, 'Albania', b'1'),
+(115, 'Nigeria', b'1'),
+(116, 'Zambia', b'1'),
+(117, 'Mozambique', b'1'),
+(119, 'Angola', b'1'),
+(120, 'Sri Lanka', b'1'),
+(121, 'Etiopía', b'1'),
+(122, 'Túnez', b'1'),
+(123, 'Bolivia', b'1'),
+(124, 'Panamá', b'1'),
+(125, 'Malawi', b'1'),
+(126, 'Liechtenstein', b'1'),
+(127, 'Bahrein', b'1'),
+(128, 'Barbados', b'1'),
+(130, 'Chad', b'1'),
+(131, 'Man, Isla de', b'1'),
+(132, 'Jamaica', b'1'),
+(133, 'Malí', b'1'),
+(134, 'Madagascar', b'1'),
+(135, 'Senegal', b'1'),
+(136, 'Togo', b'1'),
+(137, 'Honduras', b'1'),
+(138, 'República Dominicana', b'1'),
+(139, 'Mongolia', b'1'),
+(140, 'Irak', b'1'),
+(141, 'Sudáfrica', b'1'),
+(142, 'Aruba', b'1'),
+(143, 'Gibraltar', b'1'),
+(144, 'Afganistán', b'1'),
+(145, 'Andorra', b'1'),
+(147, 'Antigua y Barbuda', b'1'),
+(149, 'Bangladesh', b'1'),
+(151, 'Benín', b'1'),
+(152, 'Bután', b'1'),
+(154, 'Islas Virgenes Británicas', b'1'),
+(155, 'Brunéi', b'1'),
+(156, 'Burkina Faso', b'1'),
+(157, 'Burundi', b'1'),
+(158, 'Camboya', b'1'),
+(159, 'Cabo Verde', b'1'),
+(164, 'Comores', b'1'),
+(165, 'Congo (Kinshasa)', b'1'),
+(166, 'Cook, Islas', b'1'),
+(168, 'Costa de Marfil', b'1'),
+(169, 'Djibouti, Yibuti', b'1'),
+(171, 'Timor Oriental', b'1'),
+(172, 'Guinea Ecuatorial', b'1'),
+(173, 'Eritrea', b'1'),
+(175, 'Feroe, Islas', b'1'),
+(176, 'Fiyi', b'1'),
+(178, 'Polinesia Francesa', b'1'),
+(180, 'Gabón', b'1'),
+(181, 'Gambia', b'1'),
+(184, 'Granada', b'1'),
+(185, 'Guatemala', b'1'),
+(186, 'Guernsey', b'1'),
+(187, 'Guinea', b'1'),
+(188, 'Guinea-Bissau', b'1'),
+(189, 'Guyana', b'1'),
+(193, 'Jersey', b'1'),
+(195, 'Kiribati', b'1'),
+(196, 'Laos', b'1'),
+(197, 'Lesotho', b'1'),
+(198, 'Liberia', b'1'),
+(200, 'Maldivas', b'1'),
+(201, 'Martinica', b'1'),
+(202, 'Mauricio', b'1'),
+(205, 'Myanmar', b'1'),
+(206, 'Nauru', b'1'),
+(207, 'Antillas Holandesas', b'1'),
+(208, 'Nueva Caledonia', b'1'),
+(209, 'Nicaragua', b'1'),
+(210, 'Níger', b'1'),
+(212, 'Norfolk Island', b'1'),
+(213, 'Omán', b'1'),
+(215, 'Isla Pitcairn', b'1'),
+(216, 'Qatar', b'1'),
+(217, 'Ruanda', b'1'),
+(218, 'Santa Elena', b'1'),
+(219, 'San Cristobal y Nevis', b'1'),
+(220, 'Santa Lucía', b'1'),
+(221, 'San Pedro y Miquelón', b'1'),
+(222, 'San Vincente y Granadinas', b'1'),
+(223, 'Samoa', b'1'),
+(224, 'San Marino', b'1'),
+(225, 'San Tomé y Príncipe', b'1'),
+(226, 'Serbia y Montenegro', b'1'),
+(227, 'Sierra Leona', b'1'),
+(228, 'Islas Salomón', b'1'),
+(229, 'Somalia', b'1'),
+(232, 'Sudán', b'1'),
+(234, 'Swazilandia', b'1'),
+(235, 'Tokelau', b'1'),
+(236, 'Tonga', b'1'),
+(237, 'Trinidad y Tobago', b'1'),
+(239, 'Tuvalu', b'1'),
+(240, 'Vanuatu', b'1'),
+(241, 'Wallis y Futuna', b'1'),
+(242, 'Sáhara Occidental', b'1'),
+(243, 'Yemen', b'1'),
+(246, 'Puerto Rico', b'1');
 
 -- --------------------------------------------------------
 
@@ -2855,7 +2930,8 @@ CREATE TABLE `role_user` (
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (6, 1, 7, '2018-08-21 00:37:30', '2018-08-21 00:37:30'),
-(4, 2, 5, '2018-08-20 11:01:18', '2018-08-20 11:01:18');
+(4, 2, 5, '2018-08-20 11:01:18', '2018-08-20 11:01:18'),
+(7, 2, 8, '2018-08-28 22:29:34', '2018-08-28 22:29:34');
 
 -- --------------------------------------------------------
 
@@ -2892,6 +2968,7 @@ CREATE TABLE `users` (
   `telefono` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
   `telefono_celular` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `estado_civil` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
   `pais` int(11) NOT NULL,
   `estado` int(11) NOT NULL,
   `ciudad` int(11) NOT NULL,
@@ -2909,9 +2986,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `apellido_paterno`, `apellido_materno`, `telefono`, `telefono_celular`, `estado_civil`, `pais`, `estado`, `ciudad`, `direccion`, `latitud`, `longitud`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(5, 'shsjdhjhjh', 'jh', 'jhjhjh', '76767676', '76767676', 'soltero', 18, 832, 832, 'sjashaj', 1, 1, 'sergioshutdown@gmail.com', '$2y$10$PiepFRKbyFQHexOljGdGq.kKkrdwjt7qyj3LmR13OPKxll3vEP976', 'MdoJXn6vedLeiV8BoTlM4tTndBrf1S2dL00EK9VMTkpfpbTDzkQzY6liIm8D', '2018-08-20 11:01:17', '2018-08-20 11:01:17'),
-(7, 'asas', 'asa', 'asa', 'as', 'asa', 'asas', 42, 1746, 1746, 'asas', 21, -103, 'sergiogalindo2010@hotmail.com', '$2y$10$WJAp05tZK5Ruvs76UeXMNuXVwqQPbD9FMqEIcu5UFSBZGNDKSipJi', 'PdJ5RtHurOJNBMUj2UxaNE0ThEsM49GXSoRUT2JrhlQ35YkMaOMtmUN4ZyrO', '2018-08-21 00:37:30', '2018-08-21 00:37:30');
+INSERT INTO `users` (`id`, `name`, `apellido_paterno`, `apellido_materno`, `telefono`, `telefono_celular`, `estado_civil`, `fecha_nacimiento`, `pais`, `estado`, `ciudad`, `direccion`, `latitud`, `longitud`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(5, 'shsjdhjhjh', 'jh', 'jhjhjh', '76767676', '76767676', 'soltero', '2018-08-15', 18, 832, 832, 'sjashaj', 1, 1, 'sergioshutdown@gmail.com', '$2y$10$PiepFRKbyFQHexOljGdGq.kKkrdwjt7qyj3LmR13OPKxll3vEP976', 'MdoJXn6vedLeiV8BoTlM4tTndBrf1S2dL00EK9VMTkpfpbTDzkQzY6liIm8D', '2018-08-20 11:01:17', '2018-08-20 11:01:17'),
+(7, 'asas', 'asa', 'asa', 'as', 'asa', 'asas', '0000-00-00', 42, 1746, 1746, 'asas', 21, -103, 'sergiogalindo2010@hotmail.com', '$2y$10$WJAp05tZK5Ruvs76UeXMNuXVwqQPbD9FMqEIcu5UFSBZGNDKSipJi', 'PdJ5RtHurOJNBMUj2UxaNE0ThEsM49GXSoRUT2JrhlQ35YkMaOMtmUN4ZyrO', '2018-08-21 00:37:30', '2018-08-21 00:37:30'),
+(8, 'sergio', 'jashajh', 'jhjash', 'jhdjsh', 'jhdsjdh', 'soltero', '0000-00-00', 42, 1746, 1746, 'dsd', 21, -103, 'sgalindo.smartsoft@gmail.com', '$2y$10$MVXTt/zgFtoagt2NMz5U9O6O2rnwL1Lw/DvgDZrlWzhVuirDy9vEu', 'GrP7qp2T5JlTQTm7NSZB6O3jqVkdSLS7F7yACIFdijWC3Vnl59MKLMhmNLQ3', '2018-08-28 22:29:33', '2018-08-28 22:29:33');
 
 -- --------------------------------------------------------
 
@@ -3125,6 +3203,18 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `objetivos_as_deporte`
+--
+ALTER TABLE `objetivos_as_deporte`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `objetivos_deporte`
+--
+ALTER TABLE `objetivos_deporte`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pais`
 --
 ALTER TABLE `pais`
@@ -3222,7 +3312,7 @@ ALTER TABLE `beneficios`
 -- AUTO_INCREMENT for table `beneficios_membresia`
 --
 ALTER TABLE `beneficios_membresia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `caracteristicas_cliente`
@@ -3270,7 +3360,7 @@ ALTER TABLE `contacto_cliente`
 -- AUTO_INCREMENT for table `deportes`
 --
 ALTER TABLE `deportes`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `deportes_cliente`
@@ -3354,19 +3444,31 @@ ALTER TABLE `inventario`
 -- AUTO_INCREMENT for table `membresias`
 --
 ALTER TABLE `membresias`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `membresia_deporte`
 --
 ALTER TABLE `membresia_deporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `objetivos_as_deporte`
+--
+ALTER TABLE `objetivos_as_deporte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `objetivos_deporte`
+--
+ALTER TABLE `objetivos_deporte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pais`
@@ -3414,7 +3516,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tipomembresia`
@@ -3426,7 +3528,7 @@ ALTER TABLE `tipomembresia`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `ventas`
