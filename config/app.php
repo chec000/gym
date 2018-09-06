@@ -124,6 +124,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        NahidulHasan\Html2pdf\Html2pdfServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -174,6 +175,7 @@ return [
     */
 
     'aliases' => [
+        'Pdf'  => NahidulHasan\Html2pdf\Facades\Pdf::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'App' => Illuminate\Support\Facades\App::class,

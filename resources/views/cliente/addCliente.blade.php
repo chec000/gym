@@ -260,35 +260,31 @@
     </div>
 </div>
 
-
-
-
 <!-- The Modal -->
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Confirmación de pago</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmar registro/pago</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <div class="modal-body">
+          Modal body..
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Registrar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+        
       </div>
-  
-      <div class="modal-body">
-        Aqui poner el tipo de pago
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-      </div>
-
     </div>
   </div>
-</div>
-
-
-
+  
 {{ Form::open(array('url' => 'getEstados','id'=>'form_estado')) }}
 <input type="hidden" id="id_pais" name="id_pais">
 

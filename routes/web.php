@@ -32,11 +32,13 @@ Route::post('/admin/clientes/edit', 'ClienteController@saveUpdateCliente')->name
 Route::post('/admin/cliente/changeStatus', 'ClienteController@deleteCliente')->name('activeInactive_cliente');
 
 //Deportes
-Route::get('/deporte/add', 'DeporteController@addClienteGet')->name('add');
-Route::post('/deporte/add', 'DeporteController@addCliente')->name('add');
-Route::get('/deporte/list', 'DeporteController@index')->name('index');
-Route::get('/deporte/edit', 'DeporteController@GetCliente')->name('index');
-Route::post('/deporte/edit', 'DeporteController@updateCliente')->name('index');
+Route::get('/admin/deporte/add', 'DeporteController@addDeporte')->name('addDeporte');
+Route::post('/admin/deporte/add', 'DeporteController@saveDeporte')->name('save_deporte');
+Route::get('/admin/deporte/list', 'DeporteController@index')->name('list_deportes');
+Route::get('/admin/deporte/edit', 'DeporteController@GetCliente')->name('edit_deporte');
+Route::post('/admin/deporte/edit', 'DeporteController@updateCliente')->name('edit_deporte');
+Route::post('/admin/deporte/changeStatus', 'DeporteController@deleteDeporte')->name('activeInactive_deporte');
+
 
 
 

@@ -11,7 +11,7 @@ use App\Entities\Membresia;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\DB;
-
+use NahidulHasan\Html2pdf\Pdf;
 class ClienteController extends Controller {
 
     public function index() {
@@ -35,7 +35,7 @@ class ClienteController extends Controller {
         return $clientes;
     }
 
-    public function addClienteGet() {
+    public function addClienteGet() {                
             $paises= Pais::where('activo','=',1)->get();
             $membresias= Membresia::where('activo','=',1)->get();
 //            dd($membresias);
